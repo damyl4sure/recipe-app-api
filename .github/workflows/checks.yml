@@ -24,4 +24,5 @@ jobs:
         run: docker-compose run --rm app sh -c "flake8"
 
       - name: ruffLint
+        run: pip install ruff
         run: docker-compose run --rm app sh -c "ruff check *"
