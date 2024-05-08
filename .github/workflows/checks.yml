@@ -25,7 +25,4 @@ jobs:
 
       - name: ruffLint
         run: |
-          echo "::group::My title"
-          echo "Inside group"
-          echo "::endgroup::"
-          
+          pip install ruff
