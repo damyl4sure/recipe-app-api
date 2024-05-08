@@ -26,4 +26,4 @@ jobs:
       - name: ruffLint
         run: |
           pip install ruff
-          docker-compose run --rm app sh -c "ruff check *"
+          docker-compose run --rm app sh -c "ruff check ."
