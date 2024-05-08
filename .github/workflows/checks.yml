@@ -24,6 +24,4 @@ jobs:
         run: docker-compose run --rm app sh -c "flake8"
 
       - name: ruffLint
-        run: |
-          sudo chown -R $(whoami) /app/.ruff_cache
-          docker-compose run --rm app sh -c "ruff check *"
+        run: docker-compose run --rm app sh -c "ruff check *"
