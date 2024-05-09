@@ -41,4 +41,7 @@ jobs:
       #   run: ruff check --output-format=github .
 
       - name: ruffLint
-        run: docker-compose run --rm app sh -c "ruff check --output-format=github ."
+        run: |
+          mkdir -p /app/.ruff_cache
+          chmod -R u+rwx /app/.ruff_cache
+          docker-compose run --rm app sh -c "ruff check --output-format=github ."
