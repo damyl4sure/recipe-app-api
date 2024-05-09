@@ -42,7 +42,7 @@ jobs:
         run: |
           sudo usermod -aG docker runner
           ls -lah
-          chmod -R g+w /app
+          chmod -R g+w app
           echo "!!!permision assigned!!!"
           ls -lah
           docker-compose run --rm app sh -c "ruff check --output-format=github ."
