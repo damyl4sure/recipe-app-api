@@ -38,7 +38,7 @@ jobs:
         run: ruff check --output-format=github .
 
       - name: ruffLint
-        working-directory: recipe-app-api
+        # working-directory: recipe-app-api
         run: |
           pip install ruff
           sudo usermod -aG docker runner
