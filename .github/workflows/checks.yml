@@ -16,7 +16,6 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
-        working-directory: ./app
 
       - name: Install Python
         uses: actions/setup-python@v5
@@ -39,6 +38,7 @@ jobs:
         run: ruff check --output-format=github .
 
       - name: ruffLint
+        working-directory: ./app
         run: |
           pip install ruff
           sudo usermod -aG docker runner
