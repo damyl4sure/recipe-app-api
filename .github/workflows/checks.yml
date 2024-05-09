@@ -40,5 +40,5 @@ jobs:
       - name: ruffLint
         run: |
           pip install ruff
-          sudo usermod -aG docker django-user
+          sudo usermod -aG docker $(whoami)
           docker-compose run --rm app sh -c "ruff check --output-format=github ."
