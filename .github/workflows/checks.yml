@@ -36,8 +36,8 @@ jobs:
       #   run: docker-compose run --rm app sh -c "flake8"
 
       # Update output format to enable automatic inline annotations.
-      - name: Run Ruff
-        run: ruff check --output-format=github .
+      # - name: Run Ruff
+      #   run: ruff check --output-format=github .
 
       - name: ruffLint
         run: docker-compose run --rm app sh -c "ruff check --output-format=github ."
