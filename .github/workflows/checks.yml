@@ -46,5 +46,4 @@ jobs:
       #     docker-compose run --rm app sh -c "ruff check --output-format=github ."
       - name: Run ruff check
         run: |
-          docker-compose run --rm app sh -c "chmod -R u+rwx /app/.ruff_cache && ruff check --output-format=github ."
-
+          docker-compose run --rm app sh -c "mkdir -p /app/.ruff_cache && chmod -R u+rwx /app/.ruff_cache && ruff check --output-format=github ."
