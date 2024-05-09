@@ -15,4 +15,4 @@ app/*/*/*/__pycache__/
 venv/
 
 # Ruff
-app/.ruff_cache
+# app/.ruff_cache
