@@ -33,17 +33,19 @@ jobs:
           pip install ruff==${{ env.RUFF_VERSION }}
 
       - name: Test
-        run: docker-compose run --rm app sh -c "python manage.py test"
+        run: |
+          docker-compose run --rm app sh -c "python -m pip install --upgrade pip"
+          docker-compose run --rm app sh -c "python manage.py test"
 
-      # - name: flake8Lint
-      #   run: docker-compose run --rm app sh -c "flake8"
+      - name: flake8Lint
+        run: docker-compose run --rm app sh -c "flake8"
 
-      # Update output format to enable automatic inline annotations.
-      # - name: Run Ruff
-      #   run: ruff check --output-format=github .
-
-      - name: Run ruff check
+      - name: ruffLint
         env:
           USER: "1001"
         run: |
           docker-compose run --rm -u ${{ env.USER }} app sh -c "ruff check --output-format=github ."
+      
+      # # Run ruff check directly on runner
+      # - name: Run Ruff
+      #   run: ruff check --output-format=github .

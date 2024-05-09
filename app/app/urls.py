@@ -21,4 +21,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
 ]
 one = 1
-two = 2;var = 34
+two = 2
+var = 34
