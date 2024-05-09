@@ -10,6 +10,5 @@ services:
       - "8000:8000"
     volumes:
       - ./app:/app
-      - ./app/.ruff_cache:/app/.ruff_cache
     command: >
       sh -c 'python manage.py runserver 0.0.0.0:8000'

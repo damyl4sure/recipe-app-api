@@ -47,4 +47,4 @@ jobs:
 
       - name: Run ruff check
         run: |
-          docker-compose run --rm app -u 1001 sh -c "ruff check --output-format=github ."
+          docker-compose run --rm -u 1001 app sh -c "ruff check --output-format=github ."
