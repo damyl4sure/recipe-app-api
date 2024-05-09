@@ -41,4 +41,5 @@ jobs:
         run: |
           pip install ruff
           sudo usermod -aG docker runner
+          sudo chmod -R a+w /app
           docker-compose run --rm app sh -c "ruff check --output-format=github ."
