@@ -2,6 +2,10 @@
 .git
 .gitignore
 
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
 # Docker
 .docker
 
@@ -13,3 +17,6 @@ app/*/*/*/__pycache__/
 .env/
 .venv/
 venv/
+
+# Ruff Lint
+/app/.ruff_cache
