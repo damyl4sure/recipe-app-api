@@ -38,10 +38,12 @@ jobs:
         run: ruff check --output-format=github .
 
       - name: ruffLint
-        working-directory: ./app
+        working-directory: ./recipe-app-api
         run: |
           pip install ruff
           sudo usermod -aG docker runner
           ls -lah
-          sudo chmod -R a+w /app
+          RUN chmod -R g+w /app
+          echo "!!!permision assigned!!!"
+          ls -lah
           docker-compose run --rm app sh -c "ruff check --output-format=github ."
