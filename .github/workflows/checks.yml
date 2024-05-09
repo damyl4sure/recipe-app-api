@@ -15,7 +15,17 @@ jobs:
           password: ${{ secrets. DOCKERHUB_TOKEN }}
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff
 
       - name: Test
         run: docker-compose run --rm app sh -c "python manage.py test"
@@ -26,4 +36,8 @@ jobs:
       - name: ruffLint
         run: |
           pip install ruff
-          docker-compose run --rm app sh -c "ruff check ."
+          docker-compose run --rm app sh -c "ruff check --output-format=github ."
+
+      # Update output format to enable automatic inline annotations.
+      - name: Run Ruff
+        run: ruff check --output-format=github .
