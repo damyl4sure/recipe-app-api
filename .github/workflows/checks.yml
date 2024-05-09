@@ -40,7 +40,11 @@ jobs:
       # - name: Run Ruff
       #   run: ruff check --output-format=github .
 
-      - name: ruffLint
+      # - name: ruffLint
+      #   run: |
+      #     docker-compose run --rm app sh -c "chmod -R u+rwx /app/.ruff_cache"
+      #     docker-compose run --rm app sh -c "ruff check --output-format=github ."
+      - name: Run ruff check
         run: |
-          docker-compose run --rm app sh -c "chmod -R u+rwx /app/.ruff_cache"
-          docker-compose run --rm app sh -c "ruff check --output-format=github ."
+          docker-compose run --rm app sh -c "chmod -R u+rwx /app/.ruff_cache && ruff check --output-format=github ."
+
