@@ -42,6 +42,6 @@ jobs:
 
       - name: ruffLint
         run: |
-          sudo mkdir -p /app/.ruff_cache
-          sudo chmod -R u+rwx /app/.ruff_cache
+          docker-compose run --rm app sh -c "mkdir -p /app/.ruff_cache"
+          docker-compose run --rm app sh -c "chmod -R u+rwx /app/.ruff_cache"
           docker-compose run --rm app sh -c "ruff check --output-format=github ."
