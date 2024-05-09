@@ -7,7 +7,7 @@ jobs:
   test-lint:
     name: Test and Lint
     runs-on: ubuntu-20.04
-    env:  
+    env:
       PYTHON_VERSION: "3.11"
       RUFF_VERSION: "0.4.3"
     steps:
@@ -44,8 +44,9 @@ jobs:
       #   run: |
       #     docker-compose run --rm app sh -c "chmod -R u+rwx /app/.ruff_cache"
       #     docker-compose run --rm app sh -c "ruff check --output-format=github ."
+
       - name: Run ruff check
         run: |
-          docker-compose run --rm app sh -c "ls -alh"
-          docker-compose run --rm app sh -c "\
-          ruff check --output-format=github ."
+          docker-compose run --rm \
+          -u 1001 \  # Specify the user ID of the non-root user
+          app sh -c "ruff check --output-format=github ."
