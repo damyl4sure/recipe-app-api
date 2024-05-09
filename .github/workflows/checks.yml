@@ -40,5 +40,5 @@ jobs:
       - name: ruffLint
         run: |
           pip install ruff
-          sudo usermod -aG docker 1001
+          whoami
           docker-compose run --rm app sh -c "ruff check --output-format=github ."
