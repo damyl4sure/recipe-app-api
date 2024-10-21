@@ -34,17 +34,17 @@ jobs:
 
       - name: Test
         run: |
-          docker-compose run --rm app sh -c "python -m pip install --upgrade pip"
-          docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py test"
+          docker compose run --rm app sh -c "python -m pip install --upgrade pip"
+          docker compose run --rm app sh -c "python manage.py wait_for_db && python manage.py test"
 
       - name: flake8Lint
-        run: docker-compose run --rm app sh -c "flake8"
+        run: docker compose run --rm app sh -c "flake8"
 
       - name: ruffLint
         env:
           USER: "1001"
         run: |
-          docker-compose run --rm -u ${{ env.USER }} app sh -c "ruff check --output-format=github ."
+          docker compose run --rm -u ${{ env.USER }} app sh -c "ruff check --output-format=github ."
       
       # # Run ruff check directly on runner
       # - name: Run Ruff
